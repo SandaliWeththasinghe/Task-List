@@ -62,7 +62,12 @@ function removeTask(e) {
 
 // Clear Tasks
 function clearTasks() {
-    taskList.innerHTML = '';
+    // taskList.innerHTML = '';
+
+    while(taskList.firstChild){
+        taskList.removeChild(taskList.firstChild);
+    }
+
 }
 
 
