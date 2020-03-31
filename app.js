@@ -18,7 +18,7 @@ function loadEventListners() {
     clearBtn.addEventListener('click', clearTasks);
     // Filter tasks event
     filter.addEventListener('keyup', filterTasks);
-    
+
 }
 
 // Add Task
@@ -50,9 +50,8 @@ function addTask(e) {
 
     // Clear input
     taskInput.value = '';
-
+    
     e.preventDefault();
-
 }
 
 // Store Task
@@ -64,9 +63,11 @@ function storeTaskInLocalStorage(task) {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
 
+    console.log(tasks);
+
     tasks.push(task);
 
-    localStorage.setItem('tasks', JSON.stringify(tasks)); 
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
@@ -76,8 +77,7 @@ function removeTask(e) {
     if (e.target.parentElement.classList.contains('delete-item')) {
         if(confirm('Are you sure?')){
             e.target.parentElement.parentElement.remove();
-        }
-          
+        }          
     }
 }
 
@@ -86,6 +86,7 @@ function clearTasks() {
     // taskList.innerHTML = '';
 
     while(taskList.firstChild){
+        // console.log(taskList.firstChild);
         taskList.removeChild(taskList.firstChild);
     }
 
@@ -103,5 +104,4 @@ function filterTasks(e) {
             task.style.display = 'none';
         }
     });
-
 }
