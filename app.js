@@ -128,7 +128,7 @@ function removeTaskFromLocalStorage(taskItem) {
         if(taskItem.textContent === task){
             tasks.splice(index, 1);
         }
-    });
+    }); 
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
@@ -142,6 +142,13 @@ function clearTasks() {
         taskList.removeChild(taskList.firstChild);
     }
 
+    // Clear Tasks from Local Storage
+    clearTasksFromLocalStorage();
+}
+
+// Clear tasks from Local Storage
+function clearTasksFromLocalStorage() {
+    localStorage.clear();
 }
 
 // Filter tasks
